@@ -22,7 +22,7 @@ def parse_args():
         help="path to darknet weights file (.weights) or checkpoint file (.pth)",
     )
     parser.add_argument(
-        "--config", type=Path, default="config/yolov3_custom.yaml",
+        "--config", type=Path, default="config/yolov3_denso.yaml",
         help="path to config file",
     )
     parser.add_argument(
@@ -184,7 +184,8 @@ def main():
     # os.mkdir(args.save_dir)
     # チェックポイントを保存するディレクトリを作成する。
     # args.save_dir.mkdir(exist_ok=True)
-
+    # print(start_iter)
+    # print(max_iter)
     for iter_i in range(start_iter, max_iter + 1):
         optimizer.zero_grad()
         for _ in range(subdivision):

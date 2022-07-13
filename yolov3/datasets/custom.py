@@ -90,6 +90,8 @@ class CustomDataset(torch.utils.data.Dataset):
             elif bbox_format == "coco":
                 x, y, w, h = coords
             bboxes.append([x, y, w - 1, h - 1])
+            # print("class")
+            # print(class_names)
             class_ids.append(class_names.index(label))
 
         return np.array(bboxes), np.array(class_ids)
