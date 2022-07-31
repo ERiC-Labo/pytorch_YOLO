@@ -15,6 +15,7 @@ def get_text_color(color):
 
 def draw_boxes(img, boxes, n_classes):
     draw = ImageDraw.Draw(img, mode="RGBA")
+    # draw = ImageDraw.Draw(img, mode="L")
 
     # 色を作成する。
     cmap = plt.cm.get_cmap("hsv", n_classes)
@@ -36,9 +37,12 @@ def draw_boxes(img, boxes, n_classes):
 
         # 色を選択する。
         color = tuple(cmap(box["class_id"], bytes=True))
+        # print(color)
+        color_gray = (230)
 
         # 矩形を描画する。
         draw.rectangle((x1, y1, x2, y2), outline=color, width=3)
+        # draw.rectangle((x1, y1, x2, y2), outline=color_gray, width=3)
 
         # ラベルを描画する。
         text_size = draw.textsize(caption, font=font)
@@ -48,4 +52,7 @@ def draw_boxes(img, boxes, n_classes):
         draw.rectangle(
             [tuple(text_origin), tuple(text_origin + text_size - 1)], fill=color
         )
+        # draw.rectangle(
+        #     [tuple(text_origin), tuple(text_origin + text_size - 1)], fill=color_gray
+        # )
         draw.text(text_origin, caption, fill=text_color, font=font)

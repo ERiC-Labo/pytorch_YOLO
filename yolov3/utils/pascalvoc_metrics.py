@@ -150,9 +150,12 @@ def calc_metrics(gt_bboxes, det_bboxes, class_, iou_threshold):
         dict: 指定したクラスの評価指標
     """
     # 対象クラスの正解及び予測した矩形を抽出する。
-    taget_gt_bboxes = gt_bboxes[gt_bboxes["Label"] == class_]
-    taget_det_bboxes = det_bboxes[det_bboxes["Label"] == class_]
-
+    # print(gt_bboxes)
+    #
+    # taget_gt_bboxes = gt_bboxes[gt_bboxes["Label"] == class_]
+    # taget_det_bboxes = det_bboxes[det_bboxes["Label"] == class_]
+    taget_gt_bboxes = gt_bboxes
+    taget_det_bboxes = det_bboxes
     # TP, FP を計算する。
     taget_gt_bboxes, taget_det_bboxes = check_det_bboxes(
         taget_gt_bboxes, taget_det_bboxes, iou_threshold

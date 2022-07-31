@@ -22,7 +22,7 @@ def parse_args():
         help="path to weights file",
     )
     parser.add_argument(
-        "--config", type=Path, default="config/yolov3_coco.yaml",
+        "--config", type=Path, default="config/yolov3_denso.yaml",
         help="path to config file",
     )
     parser.add_argument(

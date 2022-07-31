@@ -33,7 +33,7 @@ def parse_args():
         help="directory where checkpoint files are saved",
     )
     parser.add_argument(
-        "--save_interval", type=int, default=200,
+        "--save_interval", type=int, default=100,
         help="interval between saving checkpoints",
     )
     # fmt: on

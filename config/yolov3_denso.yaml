@@ -2,7 +2,7 @@ model:
   name: "yolov3"
   n_classes: 1
   class_names: "denso_class_t_pipe.txt"
-  ignore_threshold: 0.7
+  ignore_threshold: 0.1
   anchors: [[10, 13], [16, 30], [33, 23],
             [30, 61], [62, 45], [59, 119],
             [116, 90], [156, 198], [373, 326]]
@@ -14,7 +14,7 @@ train:
   steps: [8000, 9000]
   momentum: 0.9
   decay: 0.0005
-  max_iter: 6000
+  max_iter: 3000
   batch_size: 4
   subdivision: 16
 augmentation:
@@ -25,6 +25,6 @@ augmentation:
   jitter: 0.3
 test:
   batch_size: 32
-  conf_threshold: 0.3
-  nms_threshold: 0.45
+  conf_threshold: 0.8
+  nms_threshold: 0.35
   img_size: 416
