@@ -15,10 +15,10 @@ import time
 #     cv2.imwrite(os.path.join(output_dir, file), equ)
 
 
-img = cv2.imread("/home/ericlab/tsuchida/2022_07/annotation/real_data_t_pipe/input/7_14_4_2_48.jpg",0)
+img = cv2.imread("/media/ericlab/56A6-0775/image/image/sensor_1.png",0)
 start = time.time()
 equ = cv2.equalizeHist(img)
 end = time.time()
 print(end - start)
 res = np.hstack((img,equ)) #stacking images side-by-side
-cv2.imwrite('/home/ericlab/network/pytorch_yolov3/previous_process/res.png',res)
+cv2.imwrite('/media/ericlab/56A6-0775/image/image/sensor_1_kai.png',equ)
